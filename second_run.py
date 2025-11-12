@@ -194,7 +194,7 @@ if __name__ == "__main__":
     # Plot learning curve
     plt.figure(figsize=(10, 6))
     plt.plot(rewards, color='blue', linewidth=1.5, label='Episode Reward')
-    plt.axhline(y=-1, color='red', linestyle='--', alpha=0.7, label='Solved Threshold (195+)')
+    plt.axhline(y=-1, color='red', linestyle='--', alpha=0.7, label='Solved Threshold -1')
     plt.xlabel('Episode Number')
     plt.ylabel('Custom Reward -|theta|')
     plt.title('DQN CartPole: Reward vs. Episode (200 Episodes)')
