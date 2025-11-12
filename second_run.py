@@ -129,6 +129,7 @@ if __name__ == "__main__":
     state_size = env.observation_space.shape[0]
     max_reward = 0
     rewards = []  # List to store per-episode rewards (episode lengths)
+    totals = []
 
     # Creates the agent
     agent = Agent(state_size=state_size, action_size=action_size)
@@ -178,6 +179,7 @@ if __name__ == "__main__":
                 print("Episode %d/%d finished after %d episode steps with total reward = %f."
                       % (episode + 1, num_episodes, episode_length, total_reward))
                 rewards.append(episode_length)
+                totals.append(total_reward)
                 break
 
             elif episode_step >= num_episode_steps - 1:
@@ -185,6 +187,7 @@ if __name__ == "__main__":
                 print("Episode %d/%d timed out at %d with total reward = %f."
                       % (episode + 1, num_episodes, episode_step + 1, total_reward))
                 rewards.append(episode_length)
+                totals.append(total_reward)
 
         # Saves the network weights
         if total_reward >= max_reward:
@@ -194,10 +197,24 @@ if __name__ == "__main__":
     # Plot learning curve
     plt.figure(figsize=(10, 6))
     plt.plot(rewards, color='blue', linewidth=1.5, label='Episode Reward')
+    plt.axhline(y=195, color='red', linestyle='--', alpha=0.7, label='Solved Threshold 195')
+    plt.xlabel('Episode Number')
+    plt.ylabel('Steps Survived')
+    plt.title('DQN CartPole: Reward vs. Episode (200 Episodes)')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.show()
+
+    plt.savefig('second_run.png', dpi=150, bbox_inches='tight')
+    print("Plot saved as 'second_run.png'. Open it to view the graph!")
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(rewards, color='blue', linewidth=1.5, label='Episode Reward')
     plt.axhline(y=-1, color='red', linestyle='--', alpha=0.7, label='Solved Threshold -1')
     plt.xlabel('Episode Number')
     plt.ylabel('Custom Reward -|theta|')
-    plt.title('DQN CartPole: Reward vs. Episode (200 Episodes)')
+    plt.title('DQN CartPole: Total Reward vs. Episode (200 Episodes)')
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
