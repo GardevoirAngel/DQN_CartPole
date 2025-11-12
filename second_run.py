@@ -221,7 +221,7 @@ if __name__ == "__main__":
     plt.show()
 
     plt.savefig('second_run.png', dpi=150, bbox_inches='tight')
-    print("Plot saved as 'second_run.png'. Open it to view the graph!")
+    print("Plot saved as 'second_run_2.png'. Open it to view the graph!")
 
     # Closes the environment
     env.close()
