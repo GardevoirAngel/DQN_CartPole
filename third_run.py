@@ -214,7 +214,7 @@ if __name__ == "__main__":
     print("Plot saved as 'third_run.png'. Open it to view the graph!")
 
     plt.figure(figsize=(10, 6))
-    plt.plot(rewards, color='blue', linewidth=1.5, label='Episode Reward')
+    plt.plot(totals, color='blue', linewidth=1.5, label='Episode Reward')
     plt.axhline(y=-1, color='red', linestyle='--', alpha=0.7, label='Solved Threshold (-1)')
     plt.xlabel('Episode Number')
     plt.ylabel('Custom Reward -(theta + pole position)')
