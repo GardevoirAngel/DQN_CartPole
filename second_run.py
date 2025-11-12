@@ -220,7 +220,7 @@ if __name__ == "__main__":
     plt.tight_layout()
     plt.show()
 
-    plt.savefig('second_run.png', dpi=150, bbox_inches='tight')
+    plt.savefig('second_run_2.png', dpi=150, bbox_inches='tight')
     print("Plot saved as 'second_run_2.png'. Open it to view the graph!")
 
     # Closes the environment
