@@ -6,6 +6,7 @@ import random
 from collections import deque
 
 import gymnasium as gym
+from gymnasium import Wrapper
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
